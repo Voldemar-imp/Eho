@@ -56,7 +56,7 @@ namespace Eho
             Console.WriteLine("Введите должность:");
             string addPost = Console.ReadLine();
             Console.WriteLine("Введите под каким номером вы хотите вставить досье:");
-            int indexToAdd = InputIndex(nameArray.Length +1);       
+            int indexToAdd = EnterIndex(nameArray.Length +1);       
             nameArray = AddToArray (nameArray, addName, indexToAdd);
             postArray = AddToArray(postArray, addPost, indexToAdd);
         }
@@ -100,7 +100,7 @@ namespace Eho
             }
                         
             Console.WriteLine("Введите номер досье для удаления:");
-            int indexDelete = InputIndex(nameArray.Length);
+            int indexDelete = EnterIndex(nameArray.Length);
             nameArray = DeleteInArray (nameArray, indexDelete);
             postArray = DeleteInArray(postArray, indexDelete);
         }
@@ -156,14 +156,14 @@ namespace Eho
             }
         }
 
-        static int InputIndex(int arreySize)
+        static int EnterIndex(int arreySize)
         {
             bool indexIsRight = false;
             int index = arreySize;
 
             while (!indexIsRight)
             {
-                index = UserInput() - 1;
+                index = СonvertUserInputToInt() - 1;
 
                 if (index >= 0 && index < arreySize)
                 {
@@ -178,7 +178,7 @@ namespace Eho
             return index;
         }
 
-        static int UserInput()
+        static int СonvertUserInputToInt()
         {
             int index = 0;
             bool isContinue = true;
