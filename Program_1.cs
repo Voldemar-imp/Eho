@@ -150,7 +150,7 @@ namespace Eho
                 }
             }
 
-            if (!isWanted)
+            if (isWanted == false)
             {
                 СhangeMessageСolor("Заданное имя - не найдено", ConsoleColor.Yellow);
             }
@@ -161,9 +161,9 @@ namespace Eho
             bool indexIsRight = false;
             int index = arreySize;
 
-            while (!indexIsRight)
+            while (indexIsRight == false)
             {
-                index = СonvertUserInputToInt() - 1;
+                index = EnterToСonvert() - 1;
 
                 if (index >= 0 && index < arreySize)
                 {
@@ -178,7 +178,7 @@ namespace Eho
             return index;
         }
 
-        static int СonvertUserInputToInt()
+        static int EnterToСonvert()
         {
             int index = 0;
             bool isContinue = true;
@@ -188,7 +188,7 @@ namespace Eho
                 string userInput = Console.ReadLine();
                 bool success = int.TryParse(userInput, out index);
 
-                if (!success)
+                if (success == false)
                 {
                     СhangeMessageСolor($"Введенное значение: '{userInput}' не явлеяется числом, поробуйте еще раз.");                
                 }
